@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuessThatPokemon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>GuessThatPokemon</h1>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html" class="active">Quiz</a>
+            <a href="journey.html">Ash's Journey</a>
+        </div>
+    </nav>
+
+    <div class="container pokedex">
+        <div class="pokedex-top">
+            <div class="pokedex-circle"></div>
+            <div class="small-circles">
+                <div class="small-circle red"></div>
+                <div class="small-circle yellow"></div>
+                <div class="small-circle green"></div>
+            </div>
+        </div>
+
+        <div class="pokemon-display">
+            <div id="score-display">Score: <span id="score">0</span></div>
+            <img id="pokemon-image" class="silhouette" src="" alt="Pokemon silhouette">
+            <div id="pokemon-info"></div>
+
+            <div class="guess-area">
+                <input type="text" id="guess-input" placeholder="Who's that Pokémon?">
+                <button id="submit-btn">Guess</button>
+                <button id="hint-btn">Get Hint</button>
+                <button id="skip-btn">Skip</button>
+            </div>
+
+            <div id="hint-display" class="hidden"></div>
+            <div id="result-message" class="hidden"></div>
+        </div>
+
+        <div class="pokedex-controls">
+            <div class="d-pad">
+                <div class="d-pad-button up"></div>
+                <div class="d-pad-button right"></div>
+                <div class="d-pad-button down"></div>
+                <div class="d-pad-button left"></div>
+                <div class="d-pad-center"></div>
+            </div>
+            <div class="control-buttons">
+                <div class="control-button"></div>
+                <div class="control-button"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created with ❤️ for Pokémon fans | Using <a href="https://pokeapi.co/" target="_blank">PokéAPI</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

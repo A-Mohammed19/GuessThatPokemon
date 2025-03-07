@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ash's Journey - GuessThatPokemon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>GuessThatPokemon</h1>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html">Quiz</a>
+            <a href="journey.html" class="active">Ash's Journey</a>
+        </div>
+    </nav>
+
+    <div class="container journey-container">
+        <div class="pokedex-top">
+            <div class="pokedex-circle"></div>
+            <div class="small-circles">
+                <div class="small-circle red"></div>
+                <div class="small-circle yellow"></div>
+                <div class="small-circle green"></div>
+            </div>
+        </div>
+
+        <div class="journey-content">
+            <h2>Ash's Journey</h2>
+            <p>Here are all the Pokémon you've correctly guessed from Ash's journey!</p>
+            
+            <div id="journey-stats">
+                <p>Total correctly guessed: <span id="total-caught">0</span></p>
+            </div>
+
+            <div id="pokemon-collection" class="pokemon-grid"></div>
+            
+            <div id="empty-collection" class="hidden">
+                <p>You haven't guessed any of Ash's Pokémon yet. Go back to the quiz and start guessing!</p>
+                <a href="index.html" class="btn">Back to Quiz</a>
+            </div>
+            
+            <button id="reset-progress" class="danger-btn">Reset Progress</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created with ❤️ for Pokémon fans | Using <a href="https://pokeapi.co/" target="_blank">PokéAPI</a></p>
+    </footer>
+
+    <script src="journey.js"></script>
+</body>
+</html>

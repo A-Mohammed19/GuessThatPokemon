@@ -1,0 +1,467 @@
+:root {
+    --main-color: #ff0000;
+    --secondary-color: #ffffff;
+    --accent-color: #3b4cca;
+    --pokedex-red: #cc0000;
+    --pokedex-border: #333333;
+    --screen-bg: #98cb98;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    background-color: var(--pokedex-red);
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover, .navbar-links a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-links a.active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border: 5px solid var(--pokedex-border);
+    flex: 1;
+}
+
+.pokedex-top {
+    background-color: var(--pokedex-red);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pokedex-circle {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 40% 40%, #5abaff, #0066ff);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 102, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 102, 255, 0.9);
+    }
+}
+
+.small-circles {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.small-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.small-circle.red {
+    background-color: #ff0000;
+}
+
+.small-circle.yellow {
+    background-color: #ffcc00;
+}
+
+.small-circle.green {
+    background-color: #00cc00;
+}
+
+.pokemon-display {
+    background-color: var(--screen-bg);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.pokemon-display::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(300px);
+    }
+}
+
+#score-display {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#pokemon-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: filter 0.5s ease;
+}
+
+.silhouette {
+    filter: brightness(0);
+}
+
+.revealed {
+    filter: brightness(1);
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.guess-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+#guess-input {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2a3b99;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#hint-btn {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+#hint-btn:hover {
+    background-color: #e6b800;
+}
+
+#skip-btn {
+    background-color: #666;
+}
+
+#skip-btn:hover {
+    background-color: #555;
+}
+
+#hint-display, #result-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+#result-message.correct {
+    background-color: rgba(0, 255, 0, 0.2);
+    border: 2px solid #00cc00;
+}
+
+#result-message.incorrect {
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 2px solid #cc0000;
+}
+
+.hidden {
+    display: none;
+}
+
+.pokedex-controls {
+    background-color: var(--pokedex-red);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.d-pad {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.d-pad-button {
+    position: absolute;
+    background-color: #333;
+    width: 30px;
+    height: 30px;
+}
+
+.d-pad-center {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 30px;
+    height: 30px;
+    background-color: #555;
+}
+
+.d-pad-button.up {
+    top: 0;
+    left: 35px;
+    border-radius: 5px 5px 0 0;
+}
+
+.d-pad-button.right {
+    top: 35px;
+    right: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.d-pad-button.down {
+    bottom: 0;
+    left: 35px;
+    border-radius: 0 0 5px 5px;
+}
+
+.d-pad-button.left {
+    top: 35px;
+    left: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.control-button {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+/* Journey Page Styles */
+
+.journey-container {
+    min-height: 600px;
+}
+
+.journey-content {
+    padding: 2rem;
+    background-color: var(--screen-bg);
+}
+
+.journey-content h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pokemon-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+}
+
+.pokemon-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.pokemon-card .name {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+#journey-stats {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.danger-btn {
+    background-color: #ff3333;
+    margin-top: 1rem;
+}
+
+.danger-btn:hover {
+    background-color: #cc0000;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2a3b99;
+    transform: translateY(-2px);
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #333;
+    color: white;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .guess-area {
+        flex-direction: column;
+    }
+    
+    #guess-input {
+        width: 100%;
+    }
+    
+    .pokemon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
