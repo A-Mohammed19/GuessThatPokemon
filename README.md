@@ -41,7 +41,7 @@ To run the project locally:
 Created with ❤️ for Pokémon fans.
 
 📄 License
-This project is licensed under the MIT License.
+-This project is licensed under the [MIT](LICENSE).
 
 ## Author
 
