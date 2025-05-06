@@ -33,10 +33,9 @@ To run the project locally:
    git clone https://github.com/yourusername/guess-that-pokemon.git
 
 2. **Navigate to the project directory**:
-  ```bash
     cd guess-that-pokemon
 
-3. **Open 'index.html' in your preferred web browser**:
+ 3.**Open 'index.html' in your preferred web browser**:
     -You can simply double-click the index.html file or use a live server extension if you're using an editor like VS Code.
 
 Created with ❤️ for Pokémon fans.
